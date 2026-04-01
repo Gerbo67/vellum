@@ -1,0 +1,44 @@
+services:
+  vellum:
+    build: .
+    container_name: vellum
+    restart: unless-stopped
+    ports:
+      - "8025:8025"
+      - "2525:2525"
+    volumes:
+      - vellum_data:/data
+    environment:
+      VELLUM_PORT: 8025
+      VELLUM_SMTP_PORT: 2525
+      VELLUM_DB_PATH: /data/vellum.db
+      VELLUM_BASE_URL: http://localhost:8025
+      VELLUM_MAX_EMAIL_SIZE: 26214400
+      VELLUM_JWT_SECRET: ""
+
+      # Log level: debug | info | warn | error
+      #   debug  -> everything (requests, queries, full detail)
+      #   info   -> normal operation (recommended default)
+      #   warn   -> warnings, errors and security events
+      #   error  -> critical errors and security events only
+      LOG_LEVEL: info
+
+      # Log format: text | json
+      #   text   -> human-readable, suitable for docker logs (default)
+      #   json   -> structured, suitable for Loki / ELK / Datadog
+      LOG_FORMAT: text
+
+      # OIDC (optional) — uncomment to enable OIDC
+      # OIDC_ISSUER: https://your-provider.com
+      # OIDC_CLIENT_ID: vellum
+      # OIDC_CLIENT_SECRET: secret
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8025/api/auth/setup-status"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  vellum_data:
+    driver: local

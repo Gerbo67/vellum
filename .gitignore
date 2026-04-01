@@ -1,0 +1,72 @@
+# ── Binarios Go ──────────────────────────────────────────────────────────────
+/vellum
+/cmd/vellum/vellum
+/cmd/vellum/dist/
+
+# ── Módulos y caché Go ───────────────────────────────────────────────────────
+vendor/
+
+# ── Base de datos BoltDB ─────────────────────────────────────────────────────
+*.db
+*.bolt
+data/
+
+# ── Frontend – dependencias ──────────────────────────────────────────────────
+web/node_modules/
+
+# ── Frontend – build ─────────────────────────────────────────────────────────
+web/dist/
+
+# ── Frontend – caché TypeScript ──────────────────────────────────────────────
+web/tsconfig.tsbuildinfo
+web/tsconfig.app.tsbuildinfo
+web/tsconfig.node.tsbuildinfo
+
+# ── Variables de entorno y configuración sensible ───────────────────────────
+.env
+appsettings.json
+appsettings.Production.json
+
+# ── Archivos de entorno de desarrollo (sí se versionan) ─────────────────────
+!.env.dev
+!appsettings.Development.json
+
+# ── Docker ───────────────────────────────────────────────────────────────────
+.dockerignore
+
+# ── Sistemas operativos ──────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDEs ─────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.suo
+*.user
+*.swp
+*.swo
+*~
+
+# ── AI / reglas de agentes ────────────────────────────────────────────────────
+.claude/
+.cursor/
+.github/
+.copilot/
+.codeium/
+.continue/
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Cobertura y tests ────────────────────────────────────────────────────────
+coverage/
+*.out
+*.test
+
+# ── Historial de modelos de entrenamiento ────────────────────────────────────
+# Solo se versiona el modelo activo (spam_model.dat).
+# Los históricos se generan localmente al reentrenar y no se incluyen en el repo.
+internal/analysis/model/history/
+
