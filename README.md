@@ -1,3 +1,5 @@
+![Gemini_Generated_Image_uym7pbuym7pbuym7 (3)](https://github.com/user-attachments/assets/e72ed23a-1dcf-45db-b5c6-2bc74085033c)
+
 # Vellum
 
 Vellum is a specialized SMTP testing server and web interface designed for modern engineering teams. It serves as a secure sanctuary for development and staging environments, ensuring that sensitive dummy data remains strictly internal while providing developers with the tools to master the art of email delivery.
